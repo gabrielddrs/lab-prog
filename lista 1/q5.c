@@ -1,15 +1,31 @@
 #include <stdio.h>
 
 int main(){
+    
+    float altura, peso_ideal;
+    int sexo;
 
-    float valor_inicial, valor_final;
+    printf("Digite sua altura:\n");
+    scanf("%f", &altura);
 
-    printf("Digite o valor da conta:\n");
-    scanf("%f", &valor_inicial);
+    printf("Digite qual seu sexo{1 - Masculino; 2 - Feminino}\n");
+    scanf("%d", &sexo);
 
-    valor_final = valor_inicial * 1.10;
+    if(sexo == 1){
+        peso_ideal = 72.7 * altura - 58;
 
-    printf("O valor final à ser pago é de: R$ %.2f", valor_final);
+        printf("O seu peso ideal é: %.2fkg", peso_ideal);
+    }
+
+    else if(sexo == 2){
+        peso_ideal = 62.1 * altura - 44.7;
+
+        printf("O seu peso ideal é: %.2fkg", peso_ideal);
+    }
+    
+    else{
+        printf("O Sexo que você inseriu é inválido, tente novamente");
+    }
 
     return 0;
 }
