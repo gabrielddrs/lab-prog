@@ -1,29 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-int main() {
-    int num1, num2;
-    int *ptr1, *ptr2, temp;
+#define TAM 3
+#define MX 100
 
-    printf("Digite o primeiro número: ");
-    scanf("%d", &num1);
+int main(){
+    unsigned char v[TAM];
+    int z[TAM];
+
+    srand(time(NULL));
+    for (int k=0; k<TAM; k++){
+        *(v+k) = rand() % MX;
+        *(z+k) = rand() % MX;
+    }
+
+    puts("Vetor - unsigned char");
+    for (int k=0; k<TAM; k++){
+        printf("[%p] %hhu\n",v+k,*(v+k));
+    }
+
+    puts("Vetor - int");
+    for (int k=0; k<TAM; k++){
+        printf("[%p] %d\n",z+k,*(z+k));
+    }
     
-    printf("Digite o segundo número: ");
-    scanf("%d", &num2);
-
-    ptr1 = &num1;
-    ptr2 = &num2;
-
-    printf("\nAntes da troca:\n");
-    printf("Número 1: %d\n", *ptr1);
-    printf("Número 2: %d\n", *ptr2);
-
-    temp = *ptr1;  
-    *ptr1 = *ptr2; 
-    *ptr2 = temp;  
-
-    printf("\nApós a troca:\n");
-    printf("Número 1: %d\n", *ptr1);
-    printf("Número 2: %d\n", *ptr2);
-
     return 0;
 }
